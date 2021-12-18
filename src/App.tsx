@@ -1,23 +1,17 @@
-import './App.css';
+import React from 'react';
 
-function App() {
+import { Wall, Floor, Lady, GlobalStyle } from './styled';
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <Wall />
+      <Floor>
+        <Lady />
+      </Floor>
     </div>
   );
-}
+};
 
 export default App;
