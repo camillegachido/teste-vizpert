@@ -9,7 +9,7 @@ export const Board = styled.div`
   position: absolute;
   background-image: url(${board});
   bottom: 40px;
-  left: 11vw;
+  left: 15px;
   height: 195px;
   width: 424px;
   z-index: 1;
