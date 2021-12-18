@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Board from './components/Board';
+
 import { Wall, Floor, Lady, GlobalStyle } from './styled';
 
 const App: React.FC = () => {
@@ -9,6 +11,7 @@ const App: React.FC = () => {
       <Wall />
       <Floor>
         <Lady />
+        <Board />
       </Floor>
     </div>
   );
