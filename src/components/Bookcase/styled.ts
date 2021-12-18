@@ -9,5 +9,5 @@ export const Bookcase = styled.div`
   width: 580px;
   height: 357px;
   z-index: 1;
-  top: -229px;
+  top: calc(50% - 229px);
 `;
