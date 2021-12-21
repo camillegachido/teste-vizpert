@@ -1,4 +1,4 @@
-import { Shelf } from '../interfaces';
+import { Book, Shelf } from '../interfaces';
 
 import a from '../assets/book_a.svg';
 import b from '../assets/book_b.svg';
@@ -65,16 +65,16 @@ export function loadShelfs(): Shelf[] {
           },
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
       ],
     },
@@ -83,25 +83,25 @@ export function loadShelfs(): Shelf[] {
       top: 122,
       places: [
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
-          book: undefined,
+          book: {} as Book,
         },
         {
           book: {

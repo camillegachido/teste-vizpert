@@ -5,8 +5,8 @@ export interface Book {
   img: string;
 }
 
-interface ShelfPlaces {
-  book: Book | undefined;
+export interface ShelfPlaces {
+  book: Book;
 }
 
 export interface Shelf {
