@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import board from '../../assets/board.svg';
-import organize from '../../assets/button.svg';
-import activeButton from '../../assets/filter_button_active.svg';
-import desactiveButton from '../../assets/filter_button.svg';
+import board from '../assets/board.svg';
+import organize from '../assets/button.svg';
+import activeButton from '../assets/filter_button_active.svg';
+import desactiveButton from '../assets/filter_button.svg';
 
 export const Board = styled.div`
   position: absolute;

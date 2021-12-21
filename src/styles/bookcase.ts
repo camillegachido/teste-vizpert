@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import bookcase from '../../assets/bookcase.svg';
+import bookcase from '../assets/bookcase.svg';
 
 export const Empty = styled.div`
   height: 93px;

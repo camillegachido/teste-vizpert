@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import wall from './assets/bg_stripes.svg';
-import floor from './assets/ground.svg';
-import lady from './assets/lady.svg';
-import clock from './assets/clock_base.svg';
-import logo from './assets/logo.svg';
+import wall from '../assets/bg_stripes.svg';
+import floor from '../assets/ground.svg';
+import lady from '../assets/lady.svg';
+import clock from '../assets/clock_base.svg';
+import logo from '../assets/logo.svg';
 
 export const GlobalStyle = createGlobalStyle`
    body {

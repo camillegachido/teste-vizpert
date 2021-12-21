@@ -10,7 +10,7 @@ import {
   ContainerButtons,
   FiltersButton,
   Button,
-} from './styled';
+} from '../../styles/board';
 
 const BoardComponent: React.FC = () => {
   return (

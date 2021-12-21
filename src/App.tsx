@@ -1,13 +1,16 @@
 import React from 'react';
 
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
 import Board from './components/Board';
 import Bookcase from './components/Bookcase';
 
-import { Wall, Floor, Lady, GlobalStyle, Clock, Logo } from './styled';
+import { Wall, Floor, Lady, GlobalStyle, Clock, Logo } from './styles/styled';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <DndProvider backend={HTML5Backend}>
       <GlobalStyle />
       <Wall />
       <Floor />
@@ -18,7 +21,7 @@ const App: React.FC = () => {
         <Bookcase />
         <Board />
       </div>
-    </div>
+    </DndProvider>
   );
 };
 
