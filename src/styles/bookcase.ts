@@ -23,7 +23,7 @@ export const Bookcase = styled.div<BookcaseProps>`
   top: calc(50% - 229px);
 
   ${Empty} {
-    border-color: ${(p) => (p.dragging ? 'brown' : 'transparent')};
+    border-color: ${(p) => (p.dragging ? '#fff' : 'transparent')};
   }
 `;
 
@@ -48,7 +48,7 @@ interface BookProps {
 export const Book = styled.div<BookProps>`
   height: 93px;
   width: 33px;
-  border-style: dashed 1px transparent;
+  border: dashed 1px transparent;
   background-image: url(${(book) => book.img});
   background-repeat: no-repeat;
 `;

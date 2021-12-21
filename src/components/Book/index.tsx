@@ -8,7 +8,7 @@ import { Book as CardBook, Empty } from '../../styles/bookcase';
 import { useDrag, useDrop } from 'react-dnd';
 
 interface BookProps {
-  book: Book;
+  book: Book | undefined;
   index: number;
   listInd: number;
 }
@@ -39,17 +39,30 @@ const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
       const draggedListInd = item.listInd;
       const targetListInd = listInd;
 
-      if (draggedInd == targetInd) return;
+      if (draggedInd == targetInd && targetListInd == draggedListInd) return;
 
       const targetSize = ref.current?.getBoundingClientRect();
       if (targetSize) {
-        const targetCenter = (targetSize.right - targetSize.left) / 2;
+        const targetHorizontalCenter = (targetSize.right - targetSize.left) / 2;
+        const targetVerticalCenter = (targetSize.bottom - targetSize.top) / 2;
 
         const draggedOffset = monitor.getClientOffset();
-        const draggedLeft = draggedOffset.left - targetSize.left;
 
-        if (draggedInd < targetInd && draggedLeft < targetCenter) return;
-        if (draggedInd > targetInd && draggedLeft > targetCenter) return;
+        const draggedLeft = draggedOffset.left - targetSize.left;
+        const draggedTop = draggedOffset.top - targetSize.top;
+
+        if (
+          draggedInd < targetInd &&
+          (draggedLeft < targetHorizontalCenter ||
+            draggedTop < targetVerticalCenter)
+        )
+          return;
+        if (
+          draggedInd > targetInd &&
+          (draggedLeft > targetHorizontalCenter ||
+            draggedTop > targetVerticalCenter)
+        )
+          return;
 
         move(draggedListInd, targetListInd, draggedInd, targetInd);
 
@@ -66,7 +79,7 @@ const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
 
   return (
     <>
-      {book.name ? (
+      {book ? (
         <CardBook key={book.name} img={book.img} ref={ref} />
       ) : (
         <Empty ref={ref} />

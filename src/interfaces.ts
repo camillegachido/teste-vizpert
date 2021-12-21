@@ -6,7 +6,7 @@ export interface Book {
 }
 
 export interface ShelfPlaces {
-  book: Book;
+  book: Book | undefined;
 }
 
 export interface Shelf {

@@ -20,15 +20,24 @@ const BookcaseComponent: React.FC = () => {
     to: number,
   ): void => {
     const newShelfs = [...shelfs];
-    const neutralObj = {} as ShelfPlaces;
+    const neutralObj = { book: undefined } as ShelfPlaces;
 
     const dragged = newShelfs[fromList].places[from];
+    const target = newShelfs[toList].places[to];
 
     //remove o item da lista e adiciona um obj neutro no lugar
     newShelfs[fromList].places.splice(from, 1, neutralObj);
 
-    //troca o objeto da nova lista
-    newShelfs[toList].places.splice(to, 1, dragged);
+    if (target && target.book) {
+      //remove um undefined da lista
+      const firstNeutral = newShelfs[toList].places.findIndex(
+        (i) => i === neutralObj,
+      );
+      newShelfs[toList].places.splice(firstNeutral, 1);
+
+      //insere na posicao desejada
+      newShelfs[toList].places.splice(to, 0, dragged);
+    } else newShelfs[toList].places.splice(to, 1, dragged);
 
     setShelfs(newShelfs);
   };
