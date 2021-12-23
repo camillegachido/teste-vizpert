@@ -24,26 +24,32 @@ enum EBook {
 const BoardComponent: React.FC = () => {
   const { onOrganize } = useContext(ShelfContext);
   const [active, setActive] = useState<EBook>(EBook.Alpha);
+  const [oldActive, setOldActive] = useState<EBook>();
 
-  const sort = (sort: EBook) => (a: ShelfPlaces, b: ShelfPlaces) => {
-    return !a.book
-      ? 1
-      : !b.book
-      ? 1
-      : a.book[sort] < b.book[sort]
-      ? -1
-      : a.book[sort] > b.book[sort]
-      ? 1
-      : 0;
-  };
-
-  const btnClick = useCallback(
-    (val: EBook) => {
-      setActive(val);
-      onOrganize(sort(val));
+  const sort = useCallback(
+    (a: ShelfPlaces, b: ShelfPlaces): number => {
+      return !a.book
+        ? 1
+        : !b.book
+        ? 1
+        : a.book[active] < b.book[active]
+        ? -1
+        : a.book[active] > b.book[active]
+        ? 1
+        : 0;
     },
-    [onOrganize],
+    [active],
   );
+
+  const btnOrganizeClick = useCallback((): void => {
+    if (oldActive == active) {
+      onOrganize(false);
+      setOldActive(undefined);
+    } else {
+      onOrganize(sort);
+      setOldActive(active);
+    }
+  }, [active, oldActive, sort]);
 
   return (
     <Board>
@@ -52,25 +58,29 @@ const BoardComponent: React.FC = () => {
         <FiltersButton>
           <Button
             isActive={active == EBook.Alpha}
-            onClick={(e) => btnClick(EBook.Alpha)}
+            onClick={() => setActive(EBook.Alpha)}
           >
             <img src={alphabetic} />
           </Button>
           <Button
             isActive={active == EBook.Color}
-            onClick={(e) => btnClick(EBook.Color)}
+            onClick={() => setActive(EBook.Color)}
           >
             <img src={colors} />
           </Button>
           <Button
             isActive={active == EBook.Size}
-            onClick={(e) => btnClick(EBook.Size)}
+            onClick={() => setActive(EBook.Size)}
           >
             <img src={sizes} />
           </Button>
         </FiltersButton>
         <hr />
-        <ButtonOrganize />
+        <ButtonOrganize
+          onClick={() => {
+            btnOrganizeClick();
+          }}
+        />
       </ContainerButtons>
     </Board>
   );
