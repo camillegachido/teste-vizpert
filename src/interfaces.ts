@@ -1,7 +1,7 @@
 export interface Book {
   name: string;
   size: number;
-  color: string;
+  color: number;
   img: string;
 }
 

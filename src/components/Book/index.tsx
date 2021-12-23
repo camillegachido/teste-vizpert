@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 
-import BookcaseContext from '../Bookcase/context';
+import BookcaseContext from '../../context/bookcase';
 
 import { Book } from '../../interfaces';
 import { Book as CardBook, Empty } from '../../styles/bookcase';

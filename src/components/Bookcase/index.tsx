@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { loadShelfs } from '../../services/api';
+import React, { useState, useContext } from 'react';
 
 import { Bookcase, Shelf } from '../../styles/bookcase';
-import { ShelfPlaces } from '../../interfaces';
 import BookComponent from '../Book';
 
-import BookcaseContext from './context';
+import { ShelfContext } from '../../context/shelf';
+import BookcaseContext from '../../context/bookcase';
 
-const data = loadShelfs();
+// const data = loadShelfs();
 
 const BookcaseComponent: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
-  const [shelfs, setShelfs] = useState(data);
+  //   const [shelfs, setShelfs] = useState(data);
+  const { shelfs, setShelfs } = useContext(ShelfContext);
 
   const move = (
     fromList: number,
@@ -20,7 +20,9 @@ const BookcaseComponent: React.FC = () => {
     to: number,
   ): void => {
     const newShelfs = [...shelfs];
-    const neutralObj = { book: undefined } as ShelfPlaces;
+    const neutralObj = newShelfs[toList].places.filter(
+      (i) => i.book == undefined,
+    )[0];
 
     const dragged = newShelfs[fromList].places[from];
     const target = newShelfs[toList].places[to];
@@ -30,9 +32,7 @@ const BookcaseComponent: React.FC = () => {
 
     if (target && target.book) {
       //remove um undefined da lista
-      const firstNeutral = newShelfs[toList].places.findIndex(
-        (i) => i === neutralObj,
-      );
+      const firstNeutral = newShelfs[toList].places.indexOf(neutralObj);
       newShelfs[toList].places.splice(firstNeutral, 1);
 
       //insere na posicao desejada
@@ -43,7 +43,7 @@ const BookcaseComponent: React.FC = () => {
   };
 
   return (
-    <BookcaseContext.Provider value={{ shelfs, move, setIsDragging }}>
+    <BookcaseContext.Provider value={{ move, setIsDragging }}>
       <Bookcase dragging={isDragging}>
         {shelfs.map((shelf, listInd) => (
           <Shelf top={shelf.top} left={37} key={'shelf' + shelf.id}>

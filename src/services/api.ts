@@ -19,33 +19,33 @@ export function loadShelfs(): Shelf[] {
         {
           book: {
             name: 'A',
-            size: 1,
+            size: 6,
             img: a,
-            color: 'red',
+            color: 1,
           },
         },
         {
           book: {
             name: 'B',
-            size: 1,
+            size: 4,
             img: b,
-            color: 'red',
+            color: 3,
           },
         },
         {
           book: {
             name: 'C',
-            size: 1,
+            size: 8,
             img: c,
-            color: 'red',
+            color: 2,
           },
         },
         {
           book: {
             name: 'D',
-            size: 1,
+            size: 7,
             img: d,
-            color: 'red',
+            color: 6,
           },
         },
         {
@@ -53,15 +53,15 @@ export function loadShelfs(): Shelf[] {
             name: 'E',
             size: 1,
             img: e,
-            color: 'red',
+            color: 8,
           },
         },
         {
           book: {
             name: 'F',
-            size: 1,
+            size: 2,
             img: f,
-            color: 'red',
+            color: 5,
           },
         },
         {
@@ -106,25 +106,25 @@ export function loadShelfs(): Shelf[] {
         {
           book: {
             name: 'G',
-            size: 1,
+            size: 3,
             img: g,
-            color: 'red',
+            color: 4,
           },
         },
         {
           book: {
             name: 'H',
-            size: 1,
+            size: 9,
             img: h,
-            color: 'red',
+            color: 7,
           },
         },
         {
           book: {
             name: 'I',
-            size: 1,
+            size: 5,
             img: i,
-            color: 'red',
+            color: 9,
           },
         },
       ],
