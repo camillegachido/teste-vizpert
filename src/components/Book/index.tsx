@@ -15,6 +15,8 @@ interface BookProps {
 
 const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const dropRef = useRef<HTMLDivElement>(null);
+
   const { move, setIsDragging } = useContext(BookcaseContext);
 
   const [{ dragging }, drag] = useDrag({
@@ -75,8 +77,7 @@ const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
     setIsDragging(dragging);
   }, [dragging]);
 
-  drag(drop(ref));
-
+  book ? drag(drop(ref)) : drop(ref);
   return (
     <>
       {book ? (

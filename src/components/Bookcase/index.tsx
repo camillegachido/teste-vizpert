@@ -6,8 +6,6 @@ import BookComponent from '../Book';
 import { ShelfContext } from '../../context/shelf';
 import BookcaseContext from '../../context/bookcase';
 
-// const data = loadShelfs();
-
 const BookcaseComponent: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   //   const [shelfs, setShelfs] = useState(data);
