@@ -15,19 +15,21 @@ interface BookProps {
 
 const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const dropRef = useRef<HTMLDivElement>(null);
 
   const { move, setIsDragging } = useContext(BookcaseContext);
 
-  const [{ dragging }, drag] = useDrag({
-    type: 'book',
-    item: () => {
-      return { name: book?.name, index, listInd };
+  const [{ dragging }, drag] = useDrag(
+    {
+      type: 'book',
+      item: () => {
+        return { name: book?.name, index, listInd };
+      },
+      collect: (monitor: any) => ({
+        dragging: monitor.isDragging(),
+      }),
     },
-    collect: (monitor: any) => ({
-      dragging: monitor.isDragging(),
-    }),
-  });
+    [book, index, listInd],
+  );
 
   const [, drop] = useDrop({
     accept: 'book',
@@ -69,6 +71,7 @@ const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
         move(draggedListInd, targetListInd, draggedInd, targetInd);
 
         item.index = targetInd;
+        item.listInd = targetListInd;
       }
     },
   });

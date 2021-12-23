@@ -9,6 +9,18 @@ export const Empty = styled.div`
   border-width: 1px;
 `;
 
+interface BookProps {
+  img: string;
+}
+
+export const Book = styled.div<BookProps>`
+  height: 93px;
+  width: 33px;
+  border: dashed 1px transparent;
+  background-image: url(${(book) => book.img});
+  background-repeat: no-repeat;
+`;
+
 interface BookcaseProps {
   dragging: boolean;
 }
@@ -39,16 +51,4 @@ export const Shelf = styled.div<ShelfProps>`
   top: ${(p) => p.top + 'px'};
   left: ${(p) => p.left + 'px'};
   width: 390px;
-`;
-
-interface BookProps {
-  img: string;
-}
-
-export const Book = styled.div<BookProps>`
-  height: 93px;
-  width: 33px;
-  border: dashed 1px transparent;
-  background-image: url(${(book) => book.img});
-  background-repeat: no-repeat;
 `;

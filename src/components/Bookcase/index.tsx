@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { Bookcase, Shelf } from '../../styles/bookcase';
 import BookComponent from '../Book';
@@ -8,8 +8,9 @@ import BookcaseContext from '../../context/bookcase';
 
 const BookcaseComponent: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
-  //   const [shelfs, setShelfs] = useState(data);
   const { shelfs, setShelfs } = useContext(ShelfContext);
+
+  const [places, setPlaces] = useState(shelfs);
 
   const move = (
     fromList: number,
@@ -40,10 +41,14 @@ const BookcaseComponent: React.FC = () => {
     setShelfs(newShelfs);
   };
 
+  useEffect(() => {
+    setPlaces(shelfs);
+  }, [shelfs]);
+
   return (
     <BookcaseContext.Provider value={{ move, setIsDragging }}>
       <Bookcase dragging={isDragging}>
-        {shelfs.map((shelf, listInd) => (
+        {places.map((shelf, listInd) => (
           <Shelf top={shelf.top} left={37} key={'shelf' + shelf.id}>
             {shelf.places.map((place, bookInd) => (
               <BookComponent
