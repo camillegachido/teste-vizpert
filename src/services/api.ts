@@ -1,4 +1,4 @@
-import { Shelf } from '../interfaces';
+import { Shelf, EColors } from '../interfaces';
 
 import a from '../assets/book_a.svg';
 import b from '../assets/book_b.svg';
@@ -21,7 +21,7 @@ export function loadShelfs(): Shelf[] {
             name: 'A',
             size: 6,
             img: a,
-            color: 1,
+            color: EColors.Amarelo,
           },
         },
         {
@@ -29,7 +29,7 @@ export function loadShelfs(): Shelf[] {
             name: 'B',
             size: 4,
             img: b,
-            color: 3,
+            color: EColors.Vermelho,
           },
         },
         {
@@ -37,7 +37,7 @@ export function loadShelfs(): Shelf[] {
             name: 'C',
             size: 8,
             img: c,
-            color: 2,
+            color: EColors.Laranja,
           },
         },
         {
@@ -45,7 +45,7 @@ export function loadShelfs(): Shelf[] {
             name: 'D',
             size: 7,
             img: d,
-            color: 6,
+            color: EColors.Violeta,
           },
         },
         {
@@ -53,7 +53,7 @@ export function loadShelfs(): Shelf[] {
             name: 'E',
             size: 1,
             img: e,
-            color: 8,
+            color: EColors.AzulClaro,
           },
         },
         {
@@ -61,7 +61,7 @@ export function loadShelfs(): Shelf[] {
             name: 'F',
             size: 2,
             img: f,
-            color: 5,
+            color: EColors.RosaEscuro,
           },
         },
         {
@@ -108,7 +108,7 @@ export function loadShelfs(): Shelf[] {
             name: 'G',
             size: 3,
             img: g,
-            color: 4,
+            color: EColors.Rosa,
           },
         },
         {
@@ -116,7 +116,7 @@ export function loadShelfs(): Shelf[] {
             name: 'H',
             size: 9,
             img: h,
-            color: 7,
+            color: EColors.AzulEscuro,
           },
         },
         {
@@ -124,7 +124,7 @@ export function loadShelfs(): Shelf[] {
             name: 'I',
             size: 5,
             img: i,
-            color: 9,
+            color: EColors.Verde,
           },
         },
       ],

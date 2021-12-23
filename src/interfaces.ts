@@ -14,3 +14,15 @@ export interface Shelf {
   top: number;
   places: ShelfPlaces[];
 }
+
+export enum EColors {
+  Vermelho = 1,
+  Laranja = 2,
+  Amarelo = 3,
+  Verde = 4,
+  AzulClaro = 5,
+  AzulEscuro = 6,
+  Violeta = 7,
+  Rosa = 8,
+  RosaEscuro = 9,
+}
