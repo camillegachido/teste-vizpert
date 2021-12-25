@@ -49,7 +49,11 @@ const BookcaseComponent: React.FC = () => {
     <BookcaseContext.Provider value={{ move, setIsDragging }}>
       <Bookcase dragging={isDragging}>
         {places.map((shelf, listInd) => (
-          <Shelf top={shelf.top} left={37} key={'shelf' + shelf.id}>
+          <Shelf
+            top={shelf.top}
+            smallTop={shelf.smallTop}
+            key={'shelf' + shelf.id}
+          >
             {shelf.places.map((place, bookInd) => (
               <BookComponent
                 key={'book' + bookInd}

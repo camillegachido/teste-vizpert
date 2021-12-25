@@ -12,6 +12,7 @@ export interface ShelfPlaces {
 export interface Shelf {
   id: number;
   top: number;
+  smallTop: number;
   places: ShelfPlaces[];
 }
 

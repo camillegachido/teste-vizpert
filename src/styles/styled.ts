@@ -22,6 +22,25 @@ export const GlobalStyle = createGlobalStyle`
      top: 0px;
      left: calc(50% - 600px);
   }
+
+  @media(max-width: 1150px) {
+     body{
+        font-size: 10px;
+     }
+
+     #root{
+      overflow: hidden;
+     }
+
+      .container{
+         width: 306px;
+         margin: auto;
+         position: relative;
+         left:0;
+         top: 0;
+         margin-top: -100vh;
+      }
+  }
 `;
 
 export const Wall = styled.div`
@@ -46,6 +65,11 @@ export const Lady = styled.div`
   height: 320px;
   width: 271px;
   z-index: 4;
+
+  @media (max-width: 1150px) {
+    height: 197px;
+    width: 167px;
+  }
 `;
 
 export const Clock = styled.div`
@@ -55,6 +79,10 @@ export const Clock = styled.div`
   height: 179px;
   left: 120px;
   top: 70px;
+
+  @media (max-width: 1150px) {
+    display: none;
+  }
 `;
 
 export const Logo = styled.div`
@@ -64,4 +92,11 @@ export const Logo = styled.div`
   height: 220px;
   right: 0px;
   top: 40px;
+
+  @media (max-width: 1150px) {
+    width: 120px;
+    height: 120px;
+    left: calc(50% - 60px);
+    top: 20px;
+  }
 `;

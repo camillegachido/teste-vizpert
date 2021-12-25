@@ -13,6 +13,11 @@ export const Board = styled.div`
   height: 195px;
   width: 424px;
   z-index: 1;
+
+  @media (max-width: 1150px) {
+    width: 261px;
+    height: 120px;
+  }
 `;
 
 export const ContainerButtons = styled.div`
@@ -21,7 +26,7 @@ export const ContainerButtons = styled.div`
   right: 15px;
   height: 39px;
   width: 160px;
-  z-index: 1;
+  z-index: 5;
 
   h1 {
     color: #babaca;
@@ -32,6 +37,17 @@ export const ContainerButtons = styled.div`
   hr {
     border: solid 1px #babaca;
   }
+
+  @media (max-width: 1150px) {
+    width: 110px;
+    height: auto;
+    right: 7px;
+    top: 0px;
+
+    h1 {
+      margin-bottom: 5px;
+    }
+  }
 `;
 
 export const FiltersButton = styled.div`
@@ -39,6 +55,10 @@ export const FiltersButton = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 10px;
   margin-bottom: 10px;
+
+  @media (max-width: 1150px) {
+    grid-column-gap: 5px;
+  }
 `;
 
 interface ButtonProps {
@@ -62,6 +82,15 @@ export const Button = styled.button<ButtonProps>`
     height: 22px;
     margin-top: 3px;
   }
+
+  @media (max-width: 1150px) {
+    background-color: transparent;
+    height: 34px;
+
+    img {
+      height: 15px;
+    }
+  }
 `;
 
 export const ButtonOrganize = styled.div`
@@ -71,5 +100,10 @@ export const ButtonOrganize = styled.div`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 1150px) {
+    height: 27px;
+    width: 100%;
   }
 `;

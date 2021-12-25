@@ -7,6 +7,11 @@ export const Empty = styled.div`
   width: 33px;
   border-style: dashed;
   border-width: 1px;
+
+  @media (max-width: 1150px) {
+    height: 50px;
+    width: 29px;
+  }
 `;
 
 interface BookProps {
@@ -19,6 +24,11 @@ export const Book = styled.div<BookProps>`
   border: dashed 1px transparent;
   background-image: url(${(book) => book.img});
   background-repeat: no-repeat;
+
+  @media (max-width: 1150px) {
+    height: 50px;
+    width: 29px;
+  }
 `;
 
 interface BookcaseProps {
@@ -37,11 +47,18 @@ export const Bookcase = styled.div<BookcaseProps>`
   ${Empty} {
     border-color: ${(p) => (p.dragging ? '#fff' : 'transparent')};
   }
+
+  @media (max-width: 1150px) {
+    left: calc(50% - 136px);
+    width: 100%;
+    height: 188px;
+    top: calc(50% - 117px);
+  }
 `;
 
 interface ShelfProps {
   top: number;
-  left: number;
+  smallTop: number;
 }
 
 export const Shelf = styled.div<ShelfProps>`
@@ -49,6 +66,12 @@ export const Shelf = styled.div<ShelfProps>`
   position: relative;
   justify-content: space-between;
   top: ${(p) => p.top + 'px'};
-  left: ${(p) => p.left + 'px'};
+  left: 37px;
   width: 390px;
+
+  @media (max-width: 1150px) {
+    width: 207px;
+    left: 18px;
+    top: ${(p) => p.smallTop + 'px'};
+  }
 `;

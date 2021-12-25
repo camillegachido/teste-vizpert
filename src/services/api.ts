@@ -15,6 +15,7 @@ export function loadShelfs(): Shelf[] {
     {
       id: 1,
       top: 74,
+      smallTop: 42,
       places: [
         {
           book: {
@@ -81,6 +82,7 @@ export function loadShelfs(): Shelf[] {
     {
       id: 2,
       top: 122,
+      smallTop: 65,
       places: [
         {
           book: undefined,
