@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 
-import BookcaseContext from '../../context/bookcase';
+import { ShelfContext } from '../../context/shelf';
 
 import { Book } from '../../interfaces';
 import { Book as CardBook, Empty } from '../../styles/bookcase';
@@ -11,12 +11,18 @@ interface BookProps {
   book: Book | undefined;
   index: number;
   listInd: number;
+  setIsDragging: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
+const BookComponent: React.FC<BookProps> = ({
+  book,
+  index,
+  listInd,
+  setIsDragging,
+}) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const { move, setIsDragging } = useContext(BookcaseContext);
+  const { move, setBook } = useContext(ShelfContext);
 
   const [{ dragging }, drag] = useDrag(
     {
@@ -84,7 +90,13 @@ const BookComponent: React.FC<BookProps> = ({ book, index, listInd }) => {
   return (
     <>
       {book ? (
-        <CardBook key={book.name} img={book.img} ref={ref} />
+        <CardBook
+          key={book.name}
+          img={book.img}
+          ref={ref}
+          onClick={() => setBook(book)}
+          id={book.id}
+        />
       ) : (
         <Empty ref={ref} />
       )}

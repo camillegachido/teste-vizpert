@@ -75,3 +75,42 @@ export const Shelf = styled.div<ShelfProps>`
     top: ${(p) => p.smallTop + 'px'};
   }
 `;
+
+interface CardInfosProps {
+  top: number;
+  left: number;
+  show: boolean;
+}
+
+export const CardInfos = styled.div<CardInfosProps>`
+  position: absolute;
+  top: ${(p) => p.top + 70 + 'px'};
+  left: ${(p) => p.left + 'px'};
+  display: ${(p) => (p.show ? 'block' : 'none')};
+  background-color: #fff;
+  padding: 0px 8px;
+  box-shadow: 0 0 25px rgb(0 0 0 / 10%);
+  border-radius: 5px;
+
+  @media (max-width: 1150px) {
+    top: ${(p) => p.top + 40 + 'px'};
+  }
+
+  p:first-child {
+    text-align: right;
+  }
+
+  p {
+    text-align: left;
+    margin: 10px 5px;
+  }
+
+  p:hover {
+    cursor: pointer;
+  }
+
+  h2 {
+    border-bottom: 1px solid #ebebeb;
+    margin: 10px 0px;
+  }
+`;

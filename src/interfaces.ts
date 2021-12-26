@@ -1,4 +1,5 @@
 export interface Book {
+  id: string;
   name: string;
   size: number;
   color: number;

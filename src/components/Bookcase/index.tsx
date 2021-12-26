@@ -1,54 +1,19 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Bookcase, Shelf } from '../../styles/bookcase';
 import BookComponent from '../Book';
+import CardInfo from '../CardInfo';
 
 import { ShelfContext } from '../../context/shelf';
-import BookcaseContext from '../../context/bookcase';
 
 const BookcaseComponent: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
-  const { shelfs, setShelfs } = useContext(ShelfContext);
-
-  const [places, setPlaces] = useState(shelfs);
-
-  const move = (
-    fromList: number,
-    toList: number,
-    from: number,
-    to: number,
-  ): void => {
-    const newShelfs = [...shelfs];
-    const neutralObj = newShelfs[toList].places.filter(
-      (i) => i.book == undefined,
-    )[0];
-
-    const dragged = newShelfs[fromList].places[from];
-    const target = newShelfs[toList].places[to];
-
-    //remove o item da lista e adiciona um obj neutro no lugar
-    newShelfs[fromList].places.splice(from, 1, neutralObj);
-
-    if (target && target.book) {
-      //remove um undefined da lista
-      const firstNeutral = newShelfs[toList].places.indexOf(neutralObj);
-      newShelfs[toList].places.splice(firstNeutral, 1);
-
-      //insere na posicao desejada
-      newShelfs[toList].places.splice(to, 0, dragged);
-    } else newShelfs[toList].places.splice(to, 1, dragged);
-
-    setShelfs(newShelfs);
-  };
-
-  useEffect(() => {
-    setPlaces(shelfs);
-  }, [shelfs]);
+  const { shelfs } = useContext(ShelfContext);
 
   return (
-    <BookcaseContext.Provider value={{ move, setIsDragging }}>
-      <Bookcase dragging={isDragging}>
-        {places.map((shelf, listInd) => (
+    <>
+      <Bookcase dragging={isDragging} id="bookcase">
+        {shelfs.map((shelf, listInd) => (
           <Shelf
             top={shelf.top}
             smallTop={shelf.smallTop}
@@ -60,12 +25,14 @@ const BookcaseComponent: React.FC = () => {
                 listInd={listInd}
                 book={place.book}
                 index={bookInd}
+                setIsDragging={setIsDragging}
               />
             ))}
           </Shelf>
         ))}
+        <CardInfo></CardInfo>
       </Bookcase>
-    </BookcaseContext.Provider>
+    </>
   );
 };
 

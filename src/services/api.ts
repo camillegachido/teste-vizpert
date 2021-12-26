@@ -19,6 +19,7 @@ export function loadShelfs(): Shelf[] {
       places: [
         {
           book: {
+            id: 'book1',
             name: 'A',
             size: 6,
             img: a,
@@ -27,6 +28,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book2',
             name: 'B',
             size: 4,
             img: b,
@@ -35,6 +37,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book3',
             name: 'C',
             size: 8,
             img: c,
@@ -43,6 +46,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book4',
             name: 'D',
             size: 7,
             img: d,
@@ -51,6 +55,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book5',
             name: 'E',
             size: 1,
             img: e,
@@ -59,6 +64,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book6',
             name: 'F',
             size: 2,
             img: f,
@@ -107,6 +113,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book7',
             name: 'G',
             size: 3,
             img: g,
@@ -115,6 +122,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book8',
             name: 'H',
             size: 9,
             img: h,
@@ -123,6 +131,7 @@ export function loadShelfs(): Shelf[] {
         },
         {
           book: {
+            id: 'book9',
             name: 'I',
             size: 5,
             img: i,
