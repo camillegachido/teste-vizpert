@@ -5,9 +5,9 @@ Olá! Bem vindo ao meu GitHub, jovem dev! Esse projeto foi um teste da empresa V
 
 <br />
 
-:book: Uma estante de livros onde o usuário poderá organizar livros e ordená-los com base em alguma característica dos mesmos loja de vídeo games. Construída com React, ContextAPI, Styled-components e React-dnd/react-dnd-multi-backend.
+:books: Uma estante de livros onde o usuário poderá organizar livros e ordená-los com base em alguma característica dos mesmos loja de vídeo games. Construída com React, ContextAPI, Styled-components e React-dnd/react-dnd-multi-backend.
 
-![](https://user-images.githubusercontent.com/68309624/100689173-b87ddd00-3362-11eb-9fa3-bd163acdcc1b.gif)
+![](https://user-images.githubusercontent.com/68309624/147675040-41141aa3-f5bb-4f68-b4cb-8312b0427047.gif)
 
 ## Funcionalidades
 
