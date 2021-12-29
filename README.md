@@ -1,50 +1,61 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Teste Vizpert
+Olá! Bem vindo ao meu GitHub, jovem dev! Esse projeto foi um teste da empresa Vizpert, o intuito principal era replicar o layout proposto com ReactJS. Qualquer dúvida só chamar no meu LinkedIn (o link está no final da página) e farei o possível para ajudar:smile:
 
-## Available Scripts
 
-In the project directory, you can run:
+<br />
 
-### `yarn start`
+:book: Uma estante de livros onde o usuário poderá organizar livros e ordená-los com base em alguma característica dos mesmos loja de vídeo games. Construída com React, ContextAPI, Styled-components e React-dnd/react-dnd-multi-backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![](https://user-images.githubusercontent.com/68309624/100689173-b87ddd00-3362-11eb-9fa3-bd163acdcc1b.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funcionalidades
 
-### `yarn test`
+O usuário pode:
+- Alterar a posição dos livros nas prateleiras
+- Ordenar os livros por nome, cor ou tamanho (em cada prateleira)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ao clicar no livro, o usuário pode:
+- Criar um novo livro
+- Editar o livro
+- Deletar o livro
 
-### `yarn build`
+<br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tecnologias usadas, aprendizados e dificuldades
+> Com o projeto, coloquei em prática meus conhecimentos de Styled-components, ContextAPI e aprendi a utilizar o react-dnd. Além disso, treinei os conceitos de drag n' drop, código limpo, organização de componentes e markdown (neste READ.ME aqui :sweat_smile:)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Styled-components**: 
+   
+   -Uma biblioteca para React e ReactNative que permite cirar um estilo (css) como componente. Ele permite a mistura de Javascript e CSS.
+   
+- **ContextAPI**: 
+   
+   -É uma biblioteca utilizada para gerenciar estados globais. 
+   
+- **Drag n' drop**: 
+   
+   -É o termo utilizado quando uma aplicação um sistema de arrastar e soltar (nesse caso, os livros). Para conseguir alcançar esse resultado, utilizei a biblioteca react-dnd.
+   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `yarn eject`
+## Rodando localmente
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Requer [Node.js](https://nodejs.org/) v4+ e yarn para rodar.
+Abra seu terminal favorito e rode estes comandos.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+$ yarn 
+$ yarn start
+```
+  
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**As imagens e layout são de autoria da empresa Vizpert**
 
-## Learn More
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# teste-vizpert
->>>>>>> c75c9e8e25bd90d688ba915f33561631d9ec7924
+Me siga no linked-in :smile: [Camille](https://www.linkedin.com/in/camille-gachido-b4809b1a4/)
