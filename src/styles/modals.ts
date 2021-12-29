@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface ModalProps {
+interface ShowProps {
   show: boolean;
 }
 
-export const EditModal = styled.div<ModalProps>`
+export const Modal = styled.div<ShowProps>`
   position: absolute;
   top: calc(50% - 80px);
   left: calc(50% - 230px);
@@ -21,6 +21,15 @@ export const EditModal = styled.div<ModalProps>`
     margin: 14px;
   }
 
+  p:first-child {
+    text-align: right;
+    margin-top: 0;
+  }
+
+  p:first-child:hover {
+    cursor: pointer;
+  }
+
   input {
     outline: none;
     display: block;
@@ -35,23 +44,33 @@ export const EditModal = styled.div<ModalProps>`
     transition: box-shadow 0.2s;
   }
 
-  button {
-    width: 100%;
-    margin: 0;
-    background-color: #d0d0df;
-    padding: 12px 0;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 8px;
-    border: #d0d0df solid 1px;
-  }
-
   button:hover {
     cursor: pointer;
   }
+
+  p {
+    text-align: center;
+  }
 `;
 
-export const OutClick = styled.div<ModalProps>`
+interface BtnProps {
+  btnColor?: string;
+}
+
+export const Button = styled.button<BtnProps>`
+  width: ${(p) => (p.btnColor ? '48%' : '100%')};
+  margin: 0 2px;
+  background-color: ${(p) => p.btnColor ?? '#d0d0df'};
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: ${(p) => p.btnColor ?? '#d0d0df'} solid 1px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const OutClick = styled.div<ShowProps>`
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   position: fixed;

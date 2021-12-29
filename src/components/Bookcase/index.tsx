@@ -30,7 +30,7 @@ const BookcaseComponent: React.FC = () => {
             ))}
           </Shelf>
         ))}
-        <CardInfo></CardInfo>
+        <CardInfo />
       </Bookcase>
     </>
   );

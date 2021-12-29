@@ -12,7 +12,10 @@ interface ContextProps {
   move: (fromList: number, toList: number, from: number, to: number) => void;
   book: Book;
   setBook: React.Dispatch<React.SetStateAction<Book>>;
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
   edit: (newName: string) => void;
+  deleteBook: () => void;
 }
 
 export const ShelfContext = createContext({} as ContextProps);
@@ -24,6 +27,7 @@ interface ProviderProps {
 export function ShelfProvider({ children }: ProviderProps): JSX.Element {
   const [shelfs, setShelfs] = useState<Shelf[]>(loadShelfs());
   const [book, setBook] = useState<Book>({} as Book);
+  const [show, setShow] = useState(false);
 
   const onOrganize = useCallback(
     (condition: ((a: ShelfPlaces, b: ShelfPlaces) => number) | false) => {
@@ -99,6 +103,27 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
     [book, shelfs],
   );
 
+  const deleteBook = useCallback(() => {
+    const newShelfs = [...shelfs];
+    newShelfs.map((shelf) => {
+      const newShelf = shelf.places.reduce((acc, o) => {
+        const objBook = o.book;
+
+        const obj: ShelfPlaces = {
+          book: objBook?.id == book.id ? undefined : objBook,
+        };
+
+        acc.push(obj);
+
+        return acc;
+      }, [] as ShelfPlaces[]);
+
+      shelf.places = newShelf;
+    });
+
+    setShelfs(newShelfs);
+  }, [book]);
+
   return (
     <ShelfContext.Provider
       value={{
@@ -109,6 +134,9 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
         book,
         setBook,
         edit,
+        deleteBook,
+        show,
+        setShow,
       }}
     >
       {children}

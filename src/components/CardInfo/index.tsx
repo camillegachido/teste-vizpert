@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import { CardInfos } from '../../styles/bookcase';
-import ModalEditComponent from '../Modal/edit';
 import { ShelfContext } from '../../context/shelf';
 import { OutClick } from '../../styles/modals';
 
+import ModalEditComponent from '../Modal/edit';
+import ModalDeleteComponent from '../Modal/delete';
+
 const CardInfoComponent: React.FC = () => {
-  const { book } = useContext(ShelfContext);
+  const { book, show, setShow } = useContext(ShelfContext);
 
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
-  const [show, setShow] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
   useEffect(() => {
     if (book.name) {
@@ -44,11 +46,26 @@ const CardInfoComponent: React.FC = () => {
         <p onClick={() => setShow(false)}>x</p>
         <h2>{book.name}</h2>
         <p> Criar novo livro</p>
-        <p>Deletar livro</p>
-        <p onClick={() => setShowEdit(true)}>Editar livro</p>
+        <p
+          onClick={() => {
+            setShow(false);
+            setShowDelete(true);
+          }}
+        >
+          Deletar livro
+        </p>
+        <p
+          onClick={() => {
+            setShow(false);
+            setShowEdit(true);
+          }}
+        >
+          Editar livro
+        </p>
       </CardInfos>
       <ModalEditComponent show={showEdit} setShow={setShowEdit} />
-      <OutClick show={showEdit} />
+      <ModalDeleteComponent show={showDelete} setShow={setShowDelete} />
+      <OutClick show={showEdit || showDelete} />
     </>
   );
 };

@@ -1,13 +1,17 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useState, useEffect } from 'react';
 
-import { EditModal } from '../../styles/modals';
+import { Modal, Button } from '../../styles/modals';
 import { ShelfContext } from '../../context/shelf';
 import { ModalProps } from '../../interfaces';
 
 const ModalEditComponent: React.FC<ModalProps> = ({ show, setShow }) => {
   const { book, edit } = useContext(ShelfContext);
 
-  const [newName, setNewName] = useState(book.name);
+  const [newName, setNewName] = useState(book.name ?? '');
+
+  useEffect(() => {
+    setNewName(book.name ?? '');
+  }, [show]);
 
   const onSave = useCallback(() => {
     if (newName != book.name && newName != '') {
@@ -19,7 +23,8 @@ const ModalEditComponent: React.FC<ModalProps> = ({ show, setShow }) => {
   }, [newName, book]);
 
   return (
-    <EditModal show={show}>
+    <Modal show={show}>
+      <p onClick={() => setShow(false)}>x</p>
       <h1>EDITE O LIVRO</h1>
       <label>Novo nome: </label>
       <input
@@ -27,8 +32,8 @@ const ModalEditComponent: React.FC<ModalProps> = ({ show, setShow }) => {
         value={newName}
         onChange={({ target }) => setNewName(target.value)}
       />
-      <button onClick={() => onSave()}>SALVAR</button>
-    </EditModal>
+      <Button onClick={() => onSave()}>SALVAR</Button>
+    </Modal>
   );
 };
 

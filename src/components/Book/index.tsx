@@ -22,7 +22,7 @@ const BookComponent: React.FC<BookProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const { move, setBook } = useContext(ShelfContext);
+  const { move, setBook, setShow } = useContext(ShelfContext);
 
   const [{ dragging }, drag] = useDrag(
     {
@@ -94,7 +94,10 @@ const BookComponent: React.FC<BookProps> = ({
           key={book.name}
           img={book.img}
           ref={ref}
-          onClick={() => setBook(book)}
+          onClick={() => {
+            setBook(book);
+            setShow(true);
+          }}
           id={book.id}
         />
       ) : (
