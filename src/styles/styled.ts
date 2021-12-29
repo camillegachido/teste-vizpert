@@ -80,6 +80,41 @@ export const Clock = styled.div`
   left: 120px;
   top: 70px;
 
+  &::before {
+    position: absolute;
+    content: '';
+    height: 55px;
+    width: 4px;
+    background: #633585;
+    top: 50%;
+    left: calc(50% - 5px);
+    border-radius: 5px;
+    animation: spin 6s linear infinite;
+    transform-origin: top;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: 40px;
+    width: 4px;
+    background: #633585;
+    top: 50%;
+    left: calc(50% - 5px);
+    border-radius: 5px;
+    animation: spin 72s linear infinite;
+    transform-origin: top;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(-180deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
   @media (max-width: 1150px) {
     display: none;
   }
