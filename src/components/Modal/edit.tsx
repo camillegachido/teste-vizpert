@@ -5,7 +5,7 @@ import { ShelfContext } from '../../context/shelf';
 import { ModalProps } from '../../interfaces';
 
 const ModalEditComponent: React.FC<ModalProps> = ({ show, setShow }) => {
-  const { book, edit } = useContext(ShelfContext);
+  const { book, editBook: edit } = useContext(ShelfContext);
 
   const [newName, setNewName] = useState(book.name ?? '');
 

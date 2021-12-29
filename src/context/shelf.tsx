@@ -14,7 +14,7 @@ interface ContextProps {
   setBook: React.Dispatch<React.SetStateAction<Book>>;
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
-  edit: (newName: string) => void;
+  editBook: (newName: string) => void;
   deleteBook: () => void;
 }
 
@@ -76,27 +76,27 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
     [shelfs],
   );
 
-  const edit = useCallback(
+  const editBook = useCallback(
     (newName: string) => {
       const newShelfs = [...shelfs];
-      newShelfs.map((shelf) => {
-        const newShelf = shelf.places.reduce((acc, o) => {
-          const objBook = o.book;
 
-          const obj: ShelfPlaces = {
-            book:
-              objBook?.id == book.id
-                ? Object.assign(objBook, { name: newName })
-                : objBook,
-          };
+      for (let index = 0; index < newShelfs.length; index++) {
+        const newShelfPlaces = newShelfs[index].places;
 
-          acc.push(obj);
+        const indId = newShelfPlaces.findIndex((i) => i.book?.id === book.id);
 
-          return acc;
-        }, [] as ShelfPlaces[]);
+        if (indId > -1) {
+          const newBook = newShelfPlaces[indId].book;
+          if (newBook)
+            newShelfPlaces[indId].book = {
+              ...newBook,
+              name: newName,
+            };
 
-        shelf.places = newShelf;
-      });
+          newShelfs[index].places = newShelfPlaces;
+          index = newShelfs.length;
+        }
+      }
 
       setShelfs(newShelfs);
     },
@@ -105,21 +105,16 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
 
   const deleteBook = useCallback(() => {
     const newShelfs = [...shelfs];
-    newShelfs.map((shelf) => {
-      const newShelf = shelf.places.reduce((acc, o) => {
-        const objBook = o.book;
+    for (let index = 0; index < newShelfs.length; index++) {
+      const newShelfPlaces = newShelfs[index].places;
 
-        const obj: ShelfPlaces = {
-          book: objBook?.id == book.id ? undefined : objBook,
-        };
+      const indId = newShelfPlaces.findIndex((i) => i.book?.id === book.id);
 
-        acc.push(obj);
-
-        return acc;
-      }, [] as ShelfPlaces[]);
-
-      shelf.places = newShelf;
-    });
+      if (indId > -1) {
+        newShelfs[index].places[indId] = { book: undefined };
+        index = newShelfs.length;
+      }
+    }
 
     setShelfs(newShelfs);
   }, [book]);
@@ -133,7 +128,7 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
         move,
         book,
         setBook,
-        edit,
+        editBook,
         deleteBook,
         show,
         setShow,
