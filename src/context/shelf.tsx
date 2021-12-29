@@ -1,7 +1,8 @@
 import React, { createContext, useCallback, useState } from 'react';
 
-import { Book, Shelf, ShelfPlaces } from '../interfaces';
+import { Book, EColors, Shelf, ShelfPlaces } from '../interfaces';
 import { loadShelfs } from '../services/api';
+import a from '../assets/book_a.svg';
 
 interface ContextProps {
   shelfs: Shelf[];
@@ -16,6 +17,7 @@ interface ContextProps {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   editBook: (newName: string) => void;
   deleteBook: () => void;
+  addBook: () => void;
 }
 
 export const ShelfContext = createContext({} as ContextProps);
@@ -95,6 +97,7 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
 
           newShelfs[index].places = newShelfPlaces;
           index = newShelfs.length;
+          alert('Livro editado com sucesso!');
         }
       }
 
@@ -113,11 +116,40 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
       if (indId > -1) {
         newShelfs[index].places[indId] = { book: undefined };
         index = newShelfs.length;
+        alert('Livro deletado com sucesso!');
       }
     }
 
     setShelfs(newShelfs);
   }, [book]);
+
+  const addBook = useCallback(() => {
+    const newShelfs = [...shelfs];
+    for (let index = 0; index < newShelfs.length; index++) {
+      const newShelfPlaces = newShelfs[index].places;
+
+      const indId = newShelfPlaces.findIndex((i) => i.book === undefined);
+
+      if (indId > -1) {
+        newShelfs[index].places[indId] = {
+          book: {
+            id: 'book' + new Date().getTime(),
+            name: 'Novo livro',
+            size: 6,
+            img: a,
+            color: EColors.Amarelo,
+          },
+        };
+        index = newShelfs.length;
+        alert('Novo livro foi adicionado');
+      } else {
+        if (index == newShelfs.length - 1)
+          alert('Não é possível adicionar mais livros');
+      }
+    }
+
+    setShelfs(newShelfs);
+  }, []);
 
   return (
     <ShelfContext.Provider
@@ -132,6 +164,7 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
         deleteBook,
         show,
         setShow,
+        addBook,
       }}
     >
       {children}

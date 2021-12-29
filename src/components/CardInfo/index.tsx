@@ -8,7 +8,7 @@ import ModalEditComponent from '../Modal/edit';
 import ModalDeleteComponent from '../Modal/delete';
 
 const CardInfoComponent: React.FC = () => {
-  const { book, show, setShow } = useContext(ShelfContext);
+  const { book, show, setShow, addBook } = useContext(ShelfContext);
 
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -45,7 +45,7 @@ const CardInfoComponent: React.FC = () => {
       <CardInfos top={top} left={left} show={show}>
         <p onClick={() => setShow(false)}>x</p>
         <h2>{book.name}</h2>
-        <p> Criar novo livro</p>
+        <p onClick={() => addBook()}> Criar novo livro</p>
         <p
           onClick={() => {
             setShow(false);

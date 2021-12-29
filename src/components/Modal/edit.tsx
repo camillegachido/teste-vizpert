@@ -18,7 +18,9 @@ const ModalEditComponent: React.FC<ModalProps> = ({ show, setShow }) => {
       edit(newName);
       setShow(false);
     } else {
-      console.log('error');
+      alert(
+        'Verifique se o novo nome foi preenchido e é diferente do nome anterior',
+      );
     }
   }, [newName, book]);
 
