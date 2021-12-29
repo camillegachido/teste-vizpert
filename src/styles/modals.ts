@@ -5,11 +5,11 @@ interface ShowProps {
 }
 
 export const Modal = styled.div<ShowProps>`
-  position: absolute;
+  position: fixed;
   top: calc(50% - 80px);
-  left: calc(50% - 230px);
+  left: calc(50% - 150px);
   padding: 16px 20px;
-  width: 300px;
+  width: 260px;
   background-color: #fff;
   box-shadow: 0 0 25px rgb(0 0 0 / 10%);
   border-radius: 5px;

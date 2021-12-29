@@ -17,6 +17,7 @@ export const Board = styled.div`
   @media (max-width: 1150px) {
     width: 261px;
     height: 120px;
+    z-index: 0;
   }
 `;
 

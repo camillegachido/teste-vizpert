@@ -91,6 +91,7 @@ export const CardInfos = styled.div<CardInfosProps>`
   padding: 0px 8px;
   box-shadow: 0 0 25px rgb(0 0 0 / 10%);
   border-radius: 5px;
+  z-index: 7;
 
   @media (max-width: 1150px) {
     top: ${(p) => p.top + 40 + 'px'};

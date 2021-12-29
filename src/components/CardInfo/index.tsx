@@ -65,7 +65,7 @@ const CardInfoComponent: React.FC = () => {
       </CardInfos>
       <ModalEditComponent show={showEdit} setShow={setShowEdit} />
       <ModalDeleteComponent show={showDelete} setShow={setShowDelete} />
-      <OutClick show={showEdit || showDelete} />
+      <OutClick show={showEdit || showDelete || show} />
     </>
   );
 };

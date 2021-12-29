@@ -69,6 +69,7 @@ export const Lady = styled.div`
   @media (max-width: 1150px) {
     height: 197px;
     width: 167px;
+    z-index: 1;
   }
 `;
 
