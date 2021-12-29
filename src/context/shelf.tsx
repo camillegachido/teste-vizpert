@@ -12,6 +12,7 @@ interface ContextProps {
   move: (fromList: number, toList: number, from: number, to: number) => void;
   book: Book;
   setBook: React.Dispatch<React.SetStateAction<Book>>;
+  edit: (newName: string) => void;
 }
 
 export const ShelfContext = createContext({} as ContextProps);
@@ -71,6 +72,33 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
     [shelfs],
   );
 
+  const edit = useCallback(
+    (newName: string) => {
+      const newShelfs = [...shelfs];
+      newShelfs.map((shelf) => {
+        const newShelf = shelf.places.reduce((acc, o) => {
+          const objBook = o.book;
+
+          const obj: ShelfPlaces = {
+            book:
+              objBook?.id == book.id
+                ? Object.assign(objBook, { name: newName })
+                : objBook,
+          };
+
+          acc.push(obj);
+
+          return acc;
+        }, [] as ShelfPlaces[]);
+
+        shelf.places = newShelf;
+      });
+
+      setShelfs(newShelfs);
+    },
+    [book, shelfs],
+  );
+
   return (
     <ShelfContext.Provider
       value={{
@@ -80,6 +108,7 @@ export function ShelfProvider({ children }: ProviderProps): JSX.Element {
         move,
         book,
         setBook,
+        edit,
       }}
     >
       {children}

@@ -28,3 +28,8 @@ export enum EColors {
   Rosa = 8,
   RosaEscuro = 9,
 }
+
+export interface ModalProps {
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
