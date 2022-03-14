@@ -5,7 +5,7 @@ Olá! Bem vindo ao meu GitHub, jovem dev! Esse projeto foi um teste da empresa V
 
 <br />
 
-:books: Uma estante de livros onde o usuário poderá organizar livros e ordená-los com base em alguma característica dos mesmos loja de vídeo games. Construída com React, ContextAPI, Styled-components e React-dnd/react-dnd-multi-backend.
+:books: Uma estante de livros onde o usuário poderá organizar livros e ordená-los por tamanho, cor ou nome. O projeto é responsivo e foi construído com React, ContextAPI, Styled-components e React-dnd/react-dnd-multi-backend.
 
 ![](https://user-images.githubusercontent.com/68309624/147675040-41141aa3-f5bb-4f68-b4cb-8312b0427047.gif)
 
@@ -23,7 +23,7 @@ Ao clicar no livro, o usuário pode:
 <br />
 
 ## Tecnologias usadas, aprendizados e dificuldades
-> Com o projeto, coloquei em prática meus conhecimentos de Styled-components, ContextAPI e aprendi a utilizar o react-dnd. Além disso, treinei os conceitos de drag n' drop, código limpo, organização de componentes e markdown (neste READ.ME aqui :sweat_smile:)
+> Com o projeto, coloquei em prática meus conhecimentos de Styled-components, ContextAPI e aprendi a utilizar o react-dnd. Além disso, treinei os conceitos de drag n' drop, código limpo, responsividade, organização de componentes e markdown (neste READ.ME aqui :sweat_smile:)
 
 - **Styled-components**: 
    
@@ -35,7 +35,7 @@ Ao clicar no livro, o usuário pode:
    
 - **Drag n' drop**: 
    
-   -É o termo utilizado quando uma aplicação um sistema de arrastar e soltar (nesse caso, os livros). Para conseguir alcançar esse resultado, utilizei a biblioteca react-dnd.
+   -É o termo utilizado quando uma aplicação contém um sistema de arrastar e soltar (nesse caso, os livros). Para conseguir alcançar esse resultado, utilizei a biblioteca react-dnd.
    
 
 <br/>
